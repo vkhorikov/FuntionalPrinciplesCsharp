@@ -6,6 +6,8 @@ Old/*/obj/*
 New/*/obj/*
 Old/packages/*
 New/packages/*
+Old/.vs/*
+New/.vs/*
 *.ncrunchproject
 *.suo
 *.ncrunchsolution.*
