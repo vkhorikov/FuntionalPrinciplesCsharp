@@ -1,7 +1,7 @@
 Welcome to Applying Functional Principles in C#
 =====================
 
-This is the source code for the Applying Functional Principles in C# Pluralsight course (the link is coming soon).
+This is the source code for the [Applying Functional Principles in C# Pluralsight course][L7].
 
 There are two versions of the code base: the [old version][L5] that doesn't comply with the functional principles and the [new one][L6] which adheres to the functional principles described in the course. The last module of the course shows a step-by-step guide of how to refactor the old version into the new one.
 
@@ -21,3 +21,4 @@ Licence
 [L1]: http://www.apache.org/licenses/LICENSE-2.0
 [L5]: Old
 [L6]: New
+[L7]: http://pluralsight.com/courses/csharp-applying-functional-principles
