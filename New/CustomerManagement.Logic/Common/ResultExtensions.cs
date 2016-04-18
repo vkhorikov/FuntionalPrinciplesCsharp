@@ -20,6 +20,14 @@ namespace CustomerManagement.Logic.Common
             return Result.Ok(func(result.Value));
         }
 
+        public static Result OnSuccess<T>(this Result<T> result, Func<T, Result> func)
+        {
+            if (result.IsFailure)
+                return result;
+
+            return Result.Ok(func(result.Value));
+        }
+
         public static Result<T> Ensure<T>(this Result<T> result, Func<T, bool> predicate, string errorMessage)
         {
             if (result.IsFailure)
