@@ -25,7 +25,7 @@ namespace CustomerManagement.Logic.Common
             if (result.IsFailure)
                 return result;
 
-            return Result.Ok(func(result.Value));
+            return func(result.Value);
         }
 
         public static Result<T> Ensure<T>(this Result<T> result, Func<T, bool> predicate, string errorMessage)
