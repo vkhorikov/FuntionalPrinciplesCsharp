@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+
+using CSharpFunctionalExtensions;
+
 using CustomerManagement.Logic.Common;
 using CustomerManagement.Logic.Model;
 using CustomerManagement.Logic.Utils;

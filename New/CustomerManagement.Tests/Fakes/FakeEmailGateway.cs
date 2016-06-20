@@ -1,6 +1,9 @@
-﻿using CustomerManagement.Logic.Common;
+﻿using CSharpFunctionalExtensions;
+
 using CustomerManagement.Logic.Model;
+
 using Xunit;
+
 
 namespace CustomerManagement.Tests.Fakes
 {

@@ -1,4 +1,7 @@
-﻿using CustomerManagement.Logic.Common;
+﻿using CSharpFunctionalExtensions;
+
+using CustomerManagement.Logic.Common;
+
 
 namespace CustomerManagement.Logic.Model
 {
@@ -7,7 +10,7 @@ namespace CustomerManagement.Logic.Model
         public static readonly Industry Cars = new Industry(1, "Cars");
         public static readonly Industry Pharmacy = new Industry(2, "Pharmacy");
         public static readonly Industry Other = new Industry(3, "Other");
-        
+
         public virtual string Name { get; protected set; }
 
         protected Industry()

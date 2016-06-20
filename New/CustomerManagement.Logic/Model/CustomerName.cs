@@ -1,4 +1,5 @@
-﻿using CustomerManagement.Logic.Common;
+﻿using CSharpFunctionalExtensions;
+
 
 namespace CustomerManagement.Logic.Model
 {
@@ -36,7 +37,7 @@ namespace CustomerManagement.Logic.Model
             return Create(customerName).Value;
         }
 
-        public static implicit operator string (CustomerName customerName)
+        public static implicit operator string(CustomerName customerName)
         {
             return customerName.Value;
         }

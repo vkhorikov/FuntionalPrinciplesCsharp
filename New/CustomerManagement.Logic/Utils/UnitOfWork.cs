@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Data;
 using System.Linq;
-using CustomerManagement.Logic.Common;
+
+using CSharpFunctionalExtensions;
+
 using NHibernate;
 using NHibernate.Linq;
+
 
 namespace CustomerManagement.Logic.Utils
 {

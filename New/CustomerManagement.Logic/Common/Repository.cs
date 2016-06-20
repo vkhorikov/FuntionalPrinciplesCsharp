@@ -1,4 +1,7 @@
-﻿using CustomerManagement.Logic.Utils;
+﻿using CSharpFunctionalExtensions;
+
+using CustomerManagement.Logic.Utils;
+
 
 namespace CustomerManagement.Logic.Common
 {

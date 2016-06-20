@@ -1,12 +1,12 @@
-﻿using System;
-using System.Net;
-using System.Net.Http;
-using System.Text.RegularExpressions;
+﻿using System.Net.Http;
 using System.Web.Http;
+
+using CSharpFunctionalExtensions;
+
 using CustomerManagement.Api.Models;
-using CustomerManagement.Logic.Common;
 using CustomerManagement.Logic.Model;
 using CustomerManagement.Logic.Utils;
+
 
 namespace CustomerManagement.Api.Controllers
 {
@@ -84,7 +84,7 @@ namespace CustomerManagement.Api.Controllers
 
             Customer customer = customerOrNothing.Value;
             customer.DisableEmailing();
-            
+
             return Ok();
         }
 

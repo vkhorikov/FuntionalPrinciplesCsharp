@@ -1,5 +1,7 @@
 ﻿using System.Text.RegularExpressions;
-using CustomerManagement.Logic.Common;
+
+using CSharpFunctionalExtensions;
+
 
 namespace CustomerManagement.Logic.Model
 {
@@ -21,7 +23,7 @@ namespace CustomerManagement.Logic.Model
                 .Ensure(email => Regex.IsMatch(email, @"^(.+)@(.+)$"), "Email is invalid")
                 .Map(email => new Email(email));
         }
-        
+
         protected override bool EqualsCore(Email other)
         {
             return Value == other.Value;
@@ -37,7 +39,7 @@ namespace CustomerManagement.Logic.Model
             return Create(email).Value;
         }
 
-        public static implicit operator string (Email email)
+        public static implicit operator string(Email email)
         {
             return email.Value;
         }

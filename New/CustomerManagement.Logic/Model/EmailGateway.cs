@@ -1,6 +1,7 @@
-﻿using System;
-using System.Net.Mail;
-using CustomerManagement.Logic.Common;
+﻿using System.Net.Mail;
+
+using CSharpFunctionalExtensions;
+
 
 namespace CustomerManagement.Logic.Model
 {

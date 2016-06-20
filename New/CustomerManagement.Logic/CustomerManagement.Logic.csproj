@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CSharpFunctionalExtensions, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSharpFunctionalExtensions.1.0.1\lib\net45\CSharpFunctionalExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
       <Private>True</Private>
@@ -62,12 +66,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\Maybe.cs" />
-    <Compile Include="Common\ResultExtensions.cs" />
-    <Compile Include="Common\ValueObject.cs" />
     <Compile Include="Common\Repository.cs" />
     <Compile Include="Common\Entity.cs" />
-    <Compile Include="Common\Result.cs" />
     <Compile Include="Model\CustomerName.cs" />
     <Compile Include="Model\Email.cs" />
     <Compile Include="Model\EmailGateway.cs" />

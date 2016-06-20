@@ -1,5 +1,9 @@
 ﻿using System;
+
+using CSharpFunctionalExtensions;
+
 using CustomerManagement.Logic.Common;
+
 
 namespace CustomerManagement.Logic.Model
 {
@@ -12,6 +16,7 @@ namespace CustomerManagement.Logic.Model
         public virtual Email PrimaryEmail => (Email)_primaryEmail;
 
         private string _secondaryEmail;
+
         public virtual Maybe<Email> SecondaryEmail
         {
             get { return _secondaryEmail == null ? null : (Email)_secondaryEmail; }

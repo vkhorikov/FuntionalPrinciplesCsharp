@@ -1,5 +1,7 @@
 ﻿using System;
-using CustomerManagement.Logic.Common;
+
+using CSharpFunctionalExtensions;
+
 
 namespace CustomerManagement.Logic.Model
 {
