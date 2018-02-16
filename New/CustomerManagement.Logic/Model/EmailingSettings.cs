@@ -1,11 +1,11 @@
 ﻿using System;
-
+using System.Collections.Generic;
 using CSharpFunctionalExtensions;
 
 
 namespace CustomerManagement.Logic.Model
 {
-    public class EmailingSettings : ValueObject<EmailingSettings>
+    public class EmailingSettings : ValueObject
     {
         public Industry Industry { get; }
         public bool EmailingIsDisabled { get; }
@@ -49,19 +49,10 @@ namespace CustomerManagement.Logic.Model
             throw new ArgumentException();
         }
 
-        protected override bool EqualsCore(EmailingSettings other)
+        protected override IEnumerable<object> GetEqualityComponents()
         {
-            return Industry == other.Industry && EmailingIsDisabled == other.EmailingIsDisabled;
-        }
-
-        protected override int GetHashCodeCore()
-        {
-            unchecked
-            {
-                int hashCode = Industry.GetHashCode();
-                hashCode = (hashCode * 397) ^ EmailingIsDisabled.GetHashCode();
-                return hashCode;
-            }
+            yield return Industry;
+            yield return EmailingIsDisabled;
         }
     }
 }

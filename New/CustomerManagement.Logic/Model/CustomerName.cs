@@ -1,9 +1,10 @@
-﻿using CSharpFunctionalExtensions;
+﻿using System.Collections.Generic;
+using CSharpFunctionalExtensions;
 
 
 namespace CustomerManagement.Logic.Model
 {
-    public class CustomerName : ValueObject<CustomerName>
+    public class CustomerName : ValueObject
     {
         public string Value { get; }
 
@@ -22,16 +23,6 @@ namespace CustomerManagement.Logic.Model
                 .Map(name => new CustomerName(name));
         }
 
-        protected override bool EqualsCore(CustomerName other)
-        {
-            return Value == other.Value;
-        }
-
-        protected override int GetHashCodeCore()
-        {
-            return Value.GetHashCode();
-        }
-
         public static explicit operator CustomerName(string customerName)
         {
             return Create(customerName).Value;
@@ -40,6 +31,11 @@ namespace CustomerManagement.Logic.Model
         public static implicit operator string(CustomerName customerName)
         {
             return customerName.Value;
+        }
+
+        protected override IEnumerable<object> GetEqualityComponents()
+        {
+            yield return Value;
         }
     }
 }
