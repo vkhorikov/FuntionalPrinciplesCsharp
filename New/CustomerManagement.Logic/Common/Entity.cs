@@ -1,23 +1,21 @@
-﻿using System;
-using NHibernate.Proxy;
-
-namespace CustomerManagement.Logic.Common
+﻿namespace CustomerManagement.Logic.Common
 {
     public abstract class Entity
     {
-        public virtual long Id { get; protected internal set; }
+        public virtual long Id { get; protected set; }
+        protected virtual object Actual => this;
 
         public override bool Equals(object obj)
         {
             var other = obj as Entity;
 
-            if (ReferenceEquals(other, null))
+            if (other is null)
                 return false;
 
             if (ReferenceEquals(this, other))
                 return true;
 
-            if (GetRealType() != other.GetRealType())
+            if (Actual.GetType() != other.Actual.GetType())
                 return false;
 
             if (Id == 0 || other.Id == 0)
@@ -28,10 +26,10 @@ namespace CustomerManagement.Logic.Common
 
         public static bool operator ==(Entity a, Entity b)
         {
-            if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
+            if (a is null && b is null)
                 return true;
 
-            if (ReferenceEquals(a, null) || ReferenceEquals(b, null))
+            if (a is null || b is null)
                 return false;
 
             return a.Equals(b);
@@ -44,12 +42,7 @@ namespace CustomerManagement.Logic.Common
 
         public override int GetHashCode()
         {
-            return (GetRealType().ToString() + Id).GetHashCode();
-        }
-
-        private Type GetRealType()
-        {
-            return NHibernateProxyHelper.GetClassWithoutInitializingProxy(this);
+            return (Actual.GetType().ToString() + Id).GetHashCode();
         }
     }
 }
