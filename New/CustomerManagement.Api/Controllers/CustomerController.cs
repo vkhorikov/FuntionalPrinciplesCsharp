@@ -97,8 +97,8 @@ namespace CustomerManagement.Api.Controllers
             Result<Industry> industryResult = Industry.Get(model.Industry);
 
             return Result.Combine(customerResult, industryResult)
-                .OnSuccess(() => customerResult.Value.UpdateIndustry(industryResult.Value))
-                .OnBoth(result => result.IsSuccess ? Ok() : Error(result.Error));
+                .Tap(() => customerResult.Value.UpdateIndustry(industryResult.Value))
+                .Finally(result => result.IsSuccess ? Ok() : Error(result.Error));
         }
 
         [HttpPost]
@@ -108,9 +108,9 @@ namespace CustomerManagement.Api.Controllers
             return _customerRepository.GetById(id)
                 .ToResult("Customer with such Id is not found: " + id)
                 .Ensure(customer => customer.CanBePromoted(), "The customer has the highest status possible")
-                .OnSuccess(customer => customer.Promote())
-                .OnSuccess(customer => _emailGateway.SendPromotionNotification(customer.PrimaryEmail, customer.Status))
-                .OnBoth(result => result.IsSuccess ? Ok() : Error(result.Error));
+                .Tap(customer => customer.Promote())
+                .Tap(customer => _emailGateway.SendPromotionNotification(customer.PrimaryEmail, customer.Status))
+                .Finally(result => result.IsSuccess ? Ok() : Error(result.Error));
         }
     }
 }
