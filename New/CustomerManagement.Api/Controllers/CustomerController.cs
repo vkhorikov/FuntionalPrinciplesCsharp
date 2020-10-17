@@ -44,7 +44,7 @@ namespace CustomerManagement.Api.Controllers
         private Result<Maybe<Email>> GetSecondaryEmail(string secondaryEmail)
         {
             if (secondaryEmail == null)
-                return Result.Ok<Maybe<Email>>(null);
+                return Maybe<Email>.None;
 
             return Email.Create(secondaryEmail)
                 .Map(email => (Maybe<Email>)email);

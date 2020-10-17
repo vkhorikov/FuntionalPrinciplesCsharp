@@ -18,7 +18,7 @@ namespace CustomerManagement.Logic.Model
         public static Result<Email> Create(Maybe<string> emailOrNothing)
         {
             return emailOrNothing.ToResult("Email should not be empty")
-                .OnSuccess(email => email.Trim())
+                .Map(email => email.Trim())
                 .Ensure(email => email != string.Empty, "Email should not be empty")
                 .Ensure(email => email.Length <= 256, "Email is too long")
                 .Ensure(email => Regex.IsMatch(email, @"^(.+)@(.+)$"), "Email is invalid")

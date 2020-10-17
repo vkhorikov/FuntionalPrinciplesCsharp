@@ -26,18 +26,18 @@ namespace CustomerManagement.Logic.Model
         public static Result<Industry> Get(Maybe<string> name)
         {
             if (name.HasNoValue)
-                return Result.Fail<Industry>("Industry name is not specified");
+                return Result.Failure<Industry>("Industry name is not specified");
 
             if (name.Value == Cars.Name)
-                return Result.Ok(Cars);
+                return Cars;
 
             if (name.Value == Pharmacy.Name)
-                return Result.Ok(Pharmacy);
+                return Pharmacy;
 
             if (name.Value == Other.Name)
-                return Result.Ok(Other);
+                return Other;
 
-            return Result.Fail<Industry>("Industry name is invalid: " + name);
+            return Result.Failure<Industry>("Industry name is invalid: " + name);
         }
     }
 }

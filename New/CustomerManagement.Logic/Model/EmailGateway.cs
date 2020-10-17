@@ -20,11 +20,11 @@ namespace CustomerManagement.Logic.Model
                 try
                 {
                     client.Send(message);
-                    return Result.Ok();
+                    return Result.Success();
                 }
                 catch (SmtpException)
                 {
-                    return Result.Fail("Unable to send the email");
+                    return Result.Failure("Unable to send the email");
                 }
             }
         }

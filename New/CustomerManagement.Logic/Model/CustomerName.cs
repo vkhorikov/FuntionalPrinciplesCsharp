@@ -17,7 +17,7 @@ namespace CustomerManagement.Logic.Model
         {
             return customerNameOrNothing
                 .ToResult("Customer name should not be empty")
-                .OnSuccess(name => name.Trim())
+                .Map(name => name.Trim())
                 .Ensure(name => name != string.Empty, "Customer name should not be empty")
                 .Ensure(name => name.Length <= 200, "Customer name is too long")
                 .Map(name => new CustomerName(name));

@@ -14,7 +14,7 @@ namespace CustomerManagement.Tests.Fakes
         public Result SendPromotionNotification(string email, CustomerStatus newStatus)
         {
             PromotionNotificationsSent++;
-            return Result.Ok();
+            return Result.Success();
         }
 
         public void ShouldContainNumberOfPromotionNotificationsSent(int number)
